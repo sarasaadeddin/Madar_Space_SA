@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Madar Space | To-Do List</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body class="tasks-page">
+
+      <!-- Header Start -->
+<header class="header">
+  <div class="container">
+    
+    <a href="index.html" class="logo">Madar<span>.</span></a>
+
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tasks.html">To-Do</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="prayer.html">Prayers</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-icons">
+      <a href="#"><i class="fas fa-user"></i></a>
+
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+
+  </div>
+</header>
+<!-- Header End -->
+ 
+      <div class="tasks-container">
+        <div class="todo-app">
+            <h1>To-Do List</h1>
+            <div class="progress-container">
+  <div class="progress-wrapper">
+
+    <div class="progress-left">
+      <div class="progress-info" id="progress-text">
+        0 / 0 Completed
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="progress-circle" id="progress-circle">
+      0%
+    </div>
+
+  </div>
+            </div>
+            <form  class="input-area">
+                <input type="text" name="task-input" id="task-input" placeholder="Add a new task...">
+                <button type="submit" id="add-task-btn"><i class="fa-solid fa-plus"></i></button>
+            </form>
+            <div class="todos-container">
+                <ul id="task-list"></ul>
+            </div>
+            <img class="empty-image" src="No Task Icon.png" alt="empty">
+        </div>
+      </div>
+
+      <script src="js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,180 @@
+/* ================= NAVBAR ================= */
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #F6F4EF;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-bottom: 1px solid #e8e5df;
+  z-index: 1000;
+}
+
+.header .container{
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* logo */
+.logo{
+  font-size: 28px;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  color: #88986d;
+  text-decoration: none;
+}
+
+.logo span{
+  color: #8A7F72;
+}
+
+/* nav links */
+.nav-links{
+  list-style: none;
+  display: flex;
+  gap: 45px;
+}
+
+.nav-links a{
+  text-decoration: none;
+  color: #2E2E2E;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover{
+  color: #A3B18A;
+  transform: translateY(-2px);
+}
+
+/* icons */
+.nav-icons{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-icons i{
+  font-size: 20px;
+  color: #2E2E2E;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-icons i:hover{
+  color: #88986d;
+}
+
+/* menu button (mobile) */
+.menu-toggle{
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px){
+
+  .nav-links{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #F6F4EF;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-links.active{
+    display: flex;
+  }
+
+  .menu-toggle{
+    display: block;
+  }
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  background: #F6F4EF;
+  padding: 40px;
+  color: #2E2E2E;
+  padding-top: 100px;
+}
+
+
+h1{
+ color: #88986d;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#search{
+  width:60%;
+  padding:12px;
+  border:none;
+  border-radius:20px;
+  margin-bottom:40px;
+  background:#eee;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+justify-items:center;
+}
+
+.card{
+  width:180px;
+  border-radius:15px;
+  overflow:hidden;
+   background: #ffffff;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.card a{
+text-decoration:none;
+}
+
+.top{
+  background:#A3B18A;
+  color:white;
+  font-weight:bold;
+  height: 200px;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  
+}
+
+
+.bottom{
+  background:#f1efea;
+  padding:15px;
+  color:#546e6b;
+  font-weight:bold;
+}
+.book-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* أهم سطر 🔥 */
+}

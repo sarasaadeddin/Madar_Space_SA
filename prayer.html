@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="css/tracker.css" />
+</head>
+<body>
+
+
+  <header class="header">
+    <h1> Habit Tracker</h1>
+
+    
+    <div class="date-nav">
+      <button class="nav-btn" id="prev-day">&#8249;</button>
+      <span class="current-date" id="current-date"></span>
+      <button class="nav-btn" id="next-day">&#8250;</button>
+    </div>
+      
+
+   <div class="progress-card">
+  
+  <div class="progress-info">
+    <span id="progress-count">0 / 0 Completed</span>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <div class="progress-circle">
+    <span id="progress-percent">0%</span>
+  </div>
+
+</div>
+  
+
+  </header>
+
+ 
+ <main class="main-content">
+
+  <section class="habits-section">
+    <div class="habits-grid">
+
+      
+      <div class="habit-card">
+        <div class="card-image prayer-img"></div>
+      
+        <h3>🕌 Prayers</h3>
+        <!-- <a href="https://www.flaticon.com/free-icons/pray" title="pray icons">Pray icons created by Freepik - Flaticon</a> -->
+        <div id="prayers-list"></div>
+      </div>
+
+      <!-- ATHKAR -->
+      <div class="habit-card">
+        <div class="card-image athkar-img"></div>
+        <h3>📿 Athkar & Sunan</h3>
+        <div id="athkar-list"></div>
+      </div>
+
+      <!-- CUSTOM -->
+      <div class="habit-card">
+         <div class="card-image myhabit-img"></div>
+        <h3>📌 My Habits</h3>
+        <div id="custom-list"></div>
+        <button class="add-btn" id="add-habit-btn">+ Add Habit</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  
+
+  <script src="js/tracker.js"></script>
+</body>
+</html>
+
