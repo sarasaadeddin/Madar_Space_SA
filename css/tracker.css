@@ -1,10 +1,11 @@
 
+
 :root {
   --primary:     #5F7D7A;
   --primary-light: #EEF0FF;
   --success:     #4CAF50;
   --success-light: #F0FFF4;
-  --bg:          #F4F6FB;
+  --bg:          #F6F4EF;
   --card-bg:     #FFFFFF;
   --text:        #2D2D2D;
   --muted:       #9E9E9E;
@@ -20,10 +21,11 @@
 }
 
 body {
+  
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  padding: 24px 16px;
+  padding: 100px 16px 24px;
 }
 
 
@@ -338,4 +340,102 @@ body {
   .header h1 { font-size: 1.5rem; }
   .habits-grid { grid-template-columns: 1fr; }
   .bar-chart { height: 100px; }
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  position: fixed;
+     width:100% ;
+    top:0; left:0;right:0;
+    background: var(--bg);
+   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-bottom: 1.5px solid #e8e5df;
+}
+
+.navbar .nav-container{
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* logo */
+.navbar .logo{
+  font-size: 28px ; 
+    font-family:'PlayFair Display' , serif ;
+    font-weight: bolder ;
+    /* color : #a3b18a;  */ 
+    color : #88986d ;
+    /* margin-left : 100px; */
+    text-decoration: none ;
+
+}
+
+.navbar .logo span{
+  color: #4d473f;
+}
+
+/* links */
+.navbar .nav-links{
+ list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar .nav-links a{
+ text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.navbar .nav-links a:hover{
+   color: var(--accent);
+}
+
+/* icons */
+.navbar .nav-icons{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar .nav-icons i{
+  font-size: 20px;
+  color: #2E2E2E;
+  cursor: pointer;
+}
+
+/* mobile */
+.navbar .menu-toggle{
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px){
+  .navbar .nav-links{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #F6F4EF;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .navbar .nav-links.active{
+    display: flex;
+  }
+
+  .navbar .menu-toggle{
+    display: block;
+  }
 }
