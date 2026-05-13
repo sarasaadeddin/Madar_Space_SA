@@ -27,7 +27,7 @@
 
 body{
     margin:0 ;
-    font-family:'Inter' , sans-serif ;
+    font-family:'PlayFair Display' , sans-serif ;
     background-color: #f6f4ef;
     color: #2E2E2E;
     padding-top: 90px ;
@@ -36,12 +36,8 @@ body{
 }
 
 
-html {
-   /* font-size: 62.5% ;
-   scroll-behavior: smooth;
-   scroll-padding-top: 9rem ;
-   overflow-x: hidden ; */
-
+html{
+  scroll-behavior:smooth;
 }
 
 /* Features Section Here */
@@ -171,6 +167,28 @@ position : relative ; */
    padding: 1rem 0 ;
    line-height: 1.5;
 }
+/* .blur{
+  position:absolute;
+  border-radius:50%;
+  filter: blur(80px);
+  z-index:-1;
+}
+
+.blur1{
+  width:250px;
+  height:250px;
+  background:#cfd9bf;
+  top:100px;
+  left:-80px;
+}
+
+.blur2{
+  width:300px;
+  height:300px;
+  background:#dbe5d0;
+  bottom:50px;
+  right:-100px;
+} */
 
 
 .header{
@@ -190,6 +208,29 @@ position : relative ; */
  
 }
 
+.welcome-user{
+  font-size: 0.95rem;
+  font-weight: 600;
+  
+  /* margin-right: 12px; */
+  background-color:#88986d ;
+  display: inline-block ;
+    /* margin-top: 0.5rem; */
+    border-radius: 5rem ;
+   
+    color: #F6F4EF ;
+    padding: .9rem 1.5rem ;
+    cursor: pointer ;
+    /* font-size: 1rem; */
+    text-decoration: none ;
+    transition: 0.3s;
+}
+
+
+.welcome-user:hover{
+  /* transform: translateX(-4px); */
+  margin-right: 4px;
+}
 
 .home-page .container{
   max-width: var(--max-width);
@@ -204,7 +245,7 @@ position : relative ; */
 
 header .logo{
  
-    font-size: 28px ; 
+    font-size: 33px ; 
     font-family:'PlayFair Display' , serif ;
     font-weight: bolder ;
     /* color : #a3b18a;  */ 
@@ -229,8 +270,9 @@ header .logo{
 .nav-links a {
   text-decoration: none;
   color: var(--text);
-  font-weight: 700;
+  font-weight: 900;
   transition: 0.3s ease;
+  font-size: 1rem;
 }
 
 .nav-links a:hover {
@@ -270,14 +312,18 @@ header .logo{
     display: block;
   }
 
-  .nav-icons {
+  
+}
+
+.nav-icons {
   display: flex;
   align-items: center;
   gap: 20px;
+  color: #2E2E2E ;
 }
 
    .nav-icons a {
-    font-size: 2.5rem ;
+    font-size: 1.5rem ;
     color: #2E2E2E ;
     cursor: pointer; 
     margin-left: 1.5rem ;
@@ -287,7 +333,6 @@ header .logo{
     color : #88986d ;
 }
 
-}
 /* ----------- features seperated in home----------  */
 .feature-row {
   display: flex;
@@ -678,7 +723,7 @@ header .logo{
 }
 
 .journal-page {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Playfair Display', serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;

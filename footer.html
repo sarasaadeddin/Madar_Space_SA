@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+
+      .footer{
+       width:100% ;
+
+       background: #88986d;
+       color: white ;
+       padding : 55px 7% 20px ;
+       border-top-left-radius:80px ;
+       /* border-top-right-radius: 125px; */
+       font-size: 20px ;
+       /* line-height: 20px ; */
+       margin-top: 40px;
+
+      }  
+
+      .row{
+       
+        display: flex ;
+        flex-wrap: wrap;
+        align-items: flex-start  ;
+        justify-content: center;
+        gap: 40px;
+        max-width: 1100px;
+        margin:0 auto ;
+      }
+
+      .col{
+        flex: 1;
+        min-width: 200px;
+     
+      }
+
+      .logo{
+        font-size: 1.8rem ; 
+        margin-bottom: 18px;
+
+        
+        font-family:'PlayFair Display' , serif ;
+        font-weight: 700 ;
+        
+        color : #2E2E2E ;
+   
+      }
+
+
+     .footer-text{
+         line-height: 1.6;
+         max-width: 250px;
+
+         color: #f5f5f5;
+
+         font-size: 0.9rem;
+
+     }
+
+      h3{
+          margin-bottom: 15px;
+          font-size:1.2rem ;
+          color: #2E2E2E;
+      }
+
+      
+
+      .logo span{
+        color: #4d473f;
+      }
+
+      .col{
+  transition: transform 0.3s ease;
+}
+
+.col:hover{
+  transform: translateY(-4px);
+}
+
+
+     
+
+      ul{
+       list-style: none;
+      }
+
+      ul li{
+       
+        margin-bottom: 8px;
+      }
+
+      ul li a{
+        text-decoration: none;
+        color: white;
+        font-size: 0.9rem;
+
+        transition: 0.3s;
+       }
+
+
+      
+      ul li a:hover{
+        
+      color: #2E2E2E;
+      padding-left: 4px;
+
+      }
+
+
+
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 280px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  padding: 8px 12px;
+  border-radius: 10px;
+  gap: 8px;
+}
+
+.input-box i {
+  color: white;
+  font-size: 0.95rem;
+}
+
+.input-box input,
+.input-box textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.input-box textarea {
+  resize: none;
+  height: 50px;
+}
+
+
+
+.input-box input::placeholder,
+.input-box textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+
+
+.footer-form button {
+        width: 100%; 
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #2E2E2E;
+        color: white;
+        cursor: pointer;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: opacity 0.2s;
+ 
+ 
+}
+.footer-form button:hover { 
+    opacity: 0.9; 
+}
+
+
+
+
+
+
+.footer hr {
+ border: none;
+  height: 1px;
+
+  background: rgba(255,255,255,0.25);
+
+  margin: 40px 0 18px;
+}
+
+
+
+.copyright {
+  text-align: center;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.85rem;
+}
+
+
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 60px 7% 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+}
+
+
+
+
+
+
+
+
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <footer class="footer">
+        <div class="row">
+            <div class="col">
+                <div class="logo">Madar<span>.</span>
+                </div>
+                <p class="footer-text">Madar helps you organize your habits,
+                     goals, thoughts, and daily growth
+                     in one calm and meaningful space.</p>
+            </div>
+
+            <div class="col">
+                <h3>Quik Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tasks.html">To-do</a></li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="prayer.html">Habit Tracker</a></li>
+                </ul>
+            </div>
+            
+            <div class="col">
+                <h3>Contact Us</h3>
+                <form class="footer-form">
+
+                 <div class="input-box">
+                 <i class="fa-regular fa-envelope"></i>
+                 <input type="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="input-box">
+                <i class="fa-regular fa-message"></i>
+                   <textarea placeholder="Your Message"></textarea>
+                      </div>
+
+                   <button type="submit">Send Message</button>
+
+                    </form>
+                   </div>
+                </div>
+
+            <hr>
+            
+            <p class="copyright">
+                © 2026 Madar — All Rights Reserved
+            </p>
+    </footer>
+</body>
+</html>

@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 body {
@@ -40,7 +40,7 @@ body {
 
 .header h1 {
   font-size: 2rem;
-  color: var(--primary);
+  color: #88986d;
 }
 
 
@@ -118,7 +118,7 @@ body {
 .progress-fill {
   height: 100%;
   width: 0%;
-  background: #5F7D7A;
+  background: #88986d;
   border-radius: 20px;
   transition: 0.4s;
 }
@@ -127,7 +127,7 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background: #5F7D7A;
+  background: #88986d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,8 +232,8 @@ body {
 
 
 .habit input:checked {
-  background: #5F7D7A;
-  border-color: #5F7D7A ;
+  background: #88986d;
+  border-color: #88986d;
 }
 
 .habit input:checked::after {
@@ -258,7 +258,7 @@ body {
   display: block;
   margin: 4px auto 20px;
   padding: 12px 28px;
-  background: #5F7D7A ;
+  background: #88986d;
   color: white;
   border: none;
   border-radius: var(--radius);

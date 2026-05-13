@@ -1,3 +1,78 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+?>
+
+<?php
+
+$defaultHabits = [
+
+    // prayers
+    ["Fajr", "prayer"],
+    ["Dhuhr", "prayer"],
+    ["Asr", "prayer"],
+    ["Maghrib", "prayer"],
+    ["Isha", "prayer"],
+
+    // athkar
+    ["Morning Athkar", "athkar"],
+    ["Evening Athkar", "athkar"],
+    ["Duha Prayer", "athkar"],
+    ["Tahajjud", "athkar"]
+
+];
+
+foreach($defaultHabits as $habit){
+
+    $habit_name = $habit[0];
+    $category = $habit[1];
+
+    $check = mysqli_query($conn,
+        "SELECT * FROM habits 
+         WHERE user_id='$user_id'
+         AND habit_name='$habit_name'"
+    );
+
+    if(mysqli_num_rows($check) == 0){
+
+        mysqli_query($conn,
+            "INSERT INTO habits(user_id, habit_name, category)
+             VALUES('$user_id','$habit_name','$category')"
+        );
+    }
+}
+
+
+$prayers = mysqli_query($conn,
+    "SELECT * FROM habits
+     WHERE user_id='$user_id'
+     AND category='prayer'"
+);
+
+$athkar = mysqli_query($conn,
+    "SELECT * FROM habits
+     WHERE user_id='$user_id'
+     AND category='athkar'"
+);
+
+$custom = mysqli_query($conn,
+    "SELECT * FROM habits
+     WHERE user_id='$user_id'
+     AND category='custom'"
+);
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -18,7 +93,7 @@
         <li><a href="tasks.html">To-Do</a></li>
         <li><a href="journal.html">Journal</a></li>
         <li><a href="library.html">Library</a></li>
-        <li><a href="prayer.html">Prayers</a></li>
+        <li><a href="prayer.html">Tracker</a></li>
       </ul>
     </nav>
 
@@ -77,14 +152,54 @@
       
         <h3>🕌 Prayers</h3>
         <!-- <a href="https://www.flaticon.com/free-icons/pray" title="pray icons">Pray icons created by Freepik - Flaticon</a> -->
-        <div id="prayers-list"></div>
+        <div id="prayers-list">
+          <?php while($row = mysqli_fetch_assoc($prayers)) { ?>
+
+         <div class="habit">
+
+        <input 
+            type="checkbox"
+            class="habit-checkbox"
+            data-id="<?php echo $row['id']; ?>"
+        >
+
+        <span>
+            <?php echo $row['habit_name']; ?>
+        </span>
+
+    </div>
+
+       <?php } ?>
+        </div>
+
       </div>
 
       <!-- ATHKAR -->
       <div class="habit-card">
         <div class="card-image athkar-img"></div>
         <h3>📿 Athkar & Sunan</h3>
-        <div id="athkar-list"></div>
+        <div id="athkar-list">
+                  <?php while($row = mysqli_fetch_assoc($athkar)) { ?>
+
+         <div class="habit">
+
+        <input 
+            type="checkbox"
+            class="habit-checkbox"
+            data-id="<?php echo $row['id']; ?>"
+        >
+
+        <span>
+            <?php echo $row['habit_name']; ?>
+        </span>
+
+         </div>
+
+       <?php } ?>
+
+
+
+        </div>
       </div>
 
       <!-- CUSTOM -->

@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit();
+} 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +37,15 @@
     </nav>
 
     <div class="nav-icons">
-       <a href="login.html"><i class="fas fa-user"></i></a>
+
+      <span class="welcome-user">
+       Welcome <?php echo $_SESSION['user_name']; ?> !
+      </span>
+      <!-- edit to open user page -->
+       <a href="login.html"><i class="fas fa-user"></i></a> 
+       <a href="php/logout.php">
+       <i class="fas fa-right-from-bracket"></i>
+      </a>
 
     <div class="menu-toggle" id="menu-toggle">
       <i class="fa-solid fa-bars"></i>
@@ -44,8 +62,6 @@
 
  <!-- home sectio ends  -->
    <section class="home" id="home">
-    <!-- <div class="blur blur1"></div>
-   <div class="blur blur2"></div> -->
      <div class="content">
         <h3>Madar Space</h3>
         <!-- <span>Your Space In Life</span>   -->
@@ -55,13 +71,10 @@
         A calm digital space to organize your tasks, reflect on your days,
         track your growth, and stay connected to your inner rhythm.
         </p>
-        <a href="login.html" class="btn btn-feature ">Start Your Journey !</a>
+        <a href="tasks.html" class="btn btn-feature ">Continue Your Journey !</a>
         
      </div>
-  
    </section>
-
-   
 
      <section id="features">
   <h2>Everything you need</h2>
