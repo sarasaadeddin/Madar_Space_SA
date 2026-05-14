@@ -32,7 +32,8 @@ if ($title === "" || $content === "" || $tag === "") {
 }
 
 $stmt = $conn->prepare(
-    "INSERT INTO journal (user_id, title, content, tag) VALUES (?, ?, ?, ?)"
+    "INSERT INTO journal (user_id, title, content, tag) 
+     VALUES (?, ?, ?, ?)"
 );
 
 if (!$stmt) {

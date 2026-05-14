@@ -26,7 +26,7 @@ if ($id === "") {
 }
 
 $stmt = $conn->prepare(
-    "DELETE FROM journal 
+    "DELETE FROM journal
      WHERE id = ? AND user_id = ?"
 );
 

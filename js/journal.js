@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+   const API_BASE = "/Madar_Space/Madar_Space_SA/php";
+
     const notesContainer = document.getElementById("notesContainer");
     const addNoteBtn = document.getElementById("addNoteBtn");
     const addNoteModal = document.getElementById("addNoteModal");
@@ -25,9 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
     confirmDeleteBtn.addEventListener("click", confirmDeleteNote);
 
     function loadNotes() {
-        fetch("php/get_journals.php")
+        fetch(`${API_BASE}/get_journals.php`)
             .then(response => response.json())
             .then(data => {
+                console.log("JOURNALS FROM DATABASE:", data);
+
                 notes = data;
                 renderNotes(notes);
                 updateEmptyState(notes);
@@ -48,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="note-content">
                     <div class="note-header">
                         <h3 class="note-title">${note.title}</h3>
+
                         <div class="note-actions">
                             <button class="delete-btn" data-id="${note.id}">
                                 <i class="fas fa-trash"></i>
@@ -61,7 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="note-tag ${getTagClass(note.tag)}">
                             ${getTagIcon(note.tag)} ${getTagName(note.tag)}
                         </span>
-                        <span class="note-date">${formatDate(note.created_at)}</span>
+
+                        <span class="note-date">
+                            ${formatDate(note.created_at)}
+                        </span>
                     </div>
                 </div>
             `;
@@ -94,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("content", content);
         formData.append("tag", tag);
 
-        fetch("php/add_journal.php", {
+        fetch(`${API_BASE}/add_journal.php`, {
             method: "POST",
             body: formData
         })
@@ -118,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("id", noteToDeleteId);
 
-        fetch("php/delete_journal.php", {
+        fetch(`${API_BASE}/delete_journal.php`, {
             method: "POST",
             body: formData
         })
