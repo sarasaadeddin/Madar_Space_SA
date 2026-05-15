@@ -499,6 +499,30 @@ header .logo{
 
 /* ================= TASKS PAGE ================= */
 
+.tasks-page .today-info {
+  background: #f1efea;
+  border-radius: 18px;
+  padding: 14px 18px;
+  margin: -5px 0 22px;
+  text-align: center;
+  border: 1px solid #e6e1db;
+}
+
+.tasks-page .today-label {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.tasks-page .today-date {
+  display: block;
+  font-size: 17px;
+  color: #8A7F72;
+  font-weight: 600;
+}
+
 *{
   margin: 0;
   padding: 0;
