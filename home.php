@@ -11,6 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MadarSpace</title>
@@ -19,7 +20,7 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="home-page">
-<!-- Header Start -->
+
  <header class="header">
   <div class="container">
     
@@ -31,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
         <li><a href="tasks.html">To-Do</a></li>
         <li><a href="journal.html">Journal</a></li>
         <li><a href="library.html">Library</a></li>
-        <li><a href="prayer.html">Prayers</a></li>
+        <li><a href="prayer.php">Prayers</a></li>
         <!-- <li><a href="#about">About</a></li> -->
       </ul>
     </nav>
@@ -42,7 +43,7 @@ if (!isset($_SESSION['user_id'])) {
        Welcome <?php echo $_SESSION['user_name']; ?> !
       </span>
       <!-- edit to open user page -->
-       <a href="login.html"><i class="fas fa-user"></i></a> 
+       <a href="php/profile.php"><i class="fas fa-user"></i></a> 
        <a href="php/logout.php">
        <i class="fas fa-right-from-bracket"></i>
       </a>

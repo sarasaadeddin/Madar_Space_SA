@@ -1,5 +1,13 @@
 <?php
+
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 session_start();
+
+include("php/connect.php");
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.html");
@@ -7,9 +15,17 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
+
+$date = isset($_GET['date']) ? $_GET['date'] : date("Y-m-d");
+
+
 ?>
 
+
+
 <?php
+
+ 
 
 $defaultHabits = [
 
@@ -66,6 +82,20 @@ $custom = mysqli_query($conn,
      WHERE user_id='$user_id'
      AND category='custom'"
 );
+
+$today = $date;
+
+$logs = mysqli_query($conn,
+    "SELECT * FROM habit_logs
+     WHERE user_id='$user_id'
+     AND completed_date='$today'"
+);
+
+$completed = [];
+
+while($row = mysqli_fetch_assoc($logs)){
+    $completed[$row['habit_id']] = $row['completed'];
+}
 
 
 ?>
@@ -160,8 +190,10 @@ $custom = mysqli_query($conn,
         <input 
             type="checkbox"
             class="habit-checkbox"
-            data-id="<?php echo $row['id']; ?>"
-        >
+               data-id="<?php echo $row['id']; ?>"
+              <?php if(isset($completed[$row['id']]) && $completed[$row['id']] == 1) echo "checked"; ?>
+
+         >
 
         <span>
             <?php echo $row['habit_name']; ?>
@@ -186,8 +218,10 @@ $custom = mysqli_query($conn,
         <input 
             type="checkbox"
             class="habit-checkbox"
-            data-id="<?php echo $row['id']; ?>"
-        >
+               data-id="<?php echo $row['id']; ?>"
+              <?php if(isset($completed[$row['id']]) && $completed[$row['id']] == 1) echo "checked"; ?>
+
+         >
 
         <span>
             <?php echo $row['habit_name']; ?>
@@ -206,16 +240,122 @@ $custom = mysqli_query($conn,
       <div class="habit-card">
          <div class="card-image myhabit-img"></div>
         <h3>📌 My Habits</h3>
-        <div id="custom-list"></div>
+        <div id="custom-list">
+          <?php while($row = mysqli_fetch_assoc($custom)) { ?>
+
+       <div class="habit">
+
+       <input 
+         type="checkbox"
+         class="habit-checkbox"
+         data-id="<?php echo $row['id']; ?>"
+         <?php 
+         if(isset($completed[$row['id']]) 
+         && $completed[$row['id']] == 1) 
+         echo "checked"; 
+          ?>
+         > 
+
+        <span>
+            <?php echo $row['habit_name']; ?>
+        </span>
+
+       </div>
+
+       <?php } ?>
+        </div>
         <button class="add-btn" id="add-habit-btn">+ Add Habit</button>
       </div>
     </div>
+
   </section>
+
+
+  <button class="progress-btn" id="showWeeklyBtn">
+  View Weekly Progress
+</button>
 
 </main>
 
-  
 
+
+<div id="habitModal" class="modal-overlay">
+
+  <div class="modal">
+
+    <div class="modal-body">
+
+      <h2 class="modal-title">
+        Add New Habit
+      </h2>
+
+      <input 
+        type="text"
+        id="habit-name-input"
+        class="habit-input"
+        placeholder="Enter habit name"
+      >
+
+      <div class="confirmation-buttons">
+
+        <button id="cancelHabitBtn"
+                class="confirmation-btn cancel-btn">
+          Cancel
+        </button>
+
+        <button id="saveHabitBtn"
+                class="confirmation-btn confirm-btn">
+          Add Habit
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  <div id="weeklyModal" class="modal-overlay">
+
+  <div class="modal weekly-modal">
+
+    <div class="modal-body">
+
+      <h2 class="modal-title">
+        Weekly Progress
+      </h2>
+
+      <div id="weekly-progress">
+
+      </div>
+
+      <div class="confirmation-buttons">
+
+        <button
+          id="closeWeeklyBtn"
+          class="confirmation-btn confirm-btn">
+
+          Close
+
+        </button>
+
+      </div>
+
+    </div>
+
+      </div>
+
+</div>
+
+  
+   
+  <script>
+
+     let selectedDate = "<?php echo $date; ?>";
+
+</script>
   <script src="js/tracker.js"></script>
 </body>
 </html>
