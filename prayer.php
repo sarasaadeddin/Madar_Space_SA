@@ -110,36 +110,16 @@ while($row = mysqli_fetch_assoc($logs)){
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Habit Tracker</title>
   <link rel="stylesheet" href="css/tracker.css" />
+   <link rel="stylesheet" href="css/header.css" />
+   <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
-  <nav class="navbar">
-  <div class="nav-container">
+<body class="tracker-page">
 
-   <a href="index.html" class="logo">Madar<span>.</span></a>
+  <?php include "include/header.php"; ?>
+  
 
-    <nav class="nav">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="tasks.html">To-Do</a></li>
-        <li><a href="journal.html">Journal</a></li>
-        <li><a href="library.html">Library</a></li>
-        <li><a href="prayer.html">Tracker</a></li>
-      </ul>
-    </nav>
-
-    <div class="nav-icons">
-      <a href="#"><i class="fas fa-user"></i></a>
-
-      <div class="menu-toggle" id="menu-toggle">
-        <i class="fa-solid fa-bars"></i>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-
-  <header class="header">
+  <section class="tracker-header">
     
     <h1> Habit Tracker</h1>
 
@@ -168,7 +148,7 @@ while($row = mysqli_fetch_assoc($logs)){
 </div>
   
 
-  </header>
+</section>
 
  
  <main class="main-content">
@@ -357,6 +337,7 @@ while($row = mysqli_fetch_assoc($logs)){
 
 </script>
   <script src="js/tracker.js"></script>
+  <?php include "include/footer.php"; ?>
 </body>
 </html>
 

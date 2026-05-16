@@ -18,10 +18,14 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Style Link-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body class="home-page">
 
- <header class="header">
+<?php include "include/header.php"; ?>
+
+
+ <!-- <header class="header">
   <div class="container">
     
     <a href="#" class="logo">Madar<span>.</span></a>
@@ -32,9 +36,9 @@ if (!isset($_SESSION['user_id'])) {
         <li><a href="tasks.html">To-Do</a></li>
         <li><a href="journal.html">Journal</a></li>
         <li><a href="library.html">Library</a></li>
-        <li><a href="prayer.php">Prayers</a></li>
-        <!-- <li><a href="#about">About</a></li> -->
-      </ul>
+        <li><a href="prayer.php">Tracker</a></li>
+        <li><a href="#about">About</a></li> -->
+      <!-- </ul>
     </nav>
 
     <div class="nav-icons">
@@ -42,8 +46,8 @@ if (!isset($_SESSION['user_id'])) {
       <span class="welcome-user">
        Welcome <?php echo $_SESSION['user_name']; ?> !
       </span>
-      <!-- edit to open user page -->
-       <a href="php/profile.php"><i class="fas fa-user"></i></a> 
+      edit to open user page -->
+       <!-- <a href="php/profile.php"><i class="fas fa-user"></i></a> 
        <a href="php/logout.php">
        <i class="fas fa-right-from-bracket"></i>
       </a>
@@ -55,7 +59,7 @@ if (!isset($_SESSION['user_id'])) {
     
     </div>
   </div>
-</header>
+</header> --> 
 <!-- Header end -->
 
 <!-- home section start  -->
@@ -232,7 +236,9 @@ if (!isset($_SESSION['user_id'])) {
   
 </section>
 
-<div id="footer-placeholder"></div>
+
+
+<!-- <div id="footer-placeholder"></div>
 
 <script>
   fetch('footer.html')
@@ -240,7 +246,7 @@ if (!isset($_SESSION['user_id'])) {
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
     });
-</script>
+</script> -->
 
 
 
@@ -295,6 +301,6 @@ if (!isset($_SESSION['user_id'])) {
 </script>
 
 
-
+<?php include "include/footer.php"; ?>
 </body>
 </html>

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-   const API_BASE = "/Madar_Space/Madar_Space_SA/php";
+   const API_BASE = "/Madar_Space_SA/php";
 
     const notesContainer = document.getElementById("notesContainer");
     const addNoteBtn = document.getElementById("addNoteBtn");

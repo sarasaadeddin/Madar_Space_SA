@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +17,14 @@
 <title> مكتبة مدار</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/header.css">
 </head>
 
 <body>
+    <?php include "include/header.php"; ?>
 
     <!-- Header Start -->
- <header class="header">
+ <!-- <header class="header">
   <div class="container">
     
     <a href="#" class="logo"> Madar<span>.</span></a>
@@ -22,7 +36,7 @@
         <li><a href="journal.html">Journal</a></li>
         <li><a href="library.html">Library</a></li>
         <li><a href="prayer.html">Tracker</a></li>
-        <!-- <li><a href="#about">About</a></li> -->
+       
       </ul>
     </nav>
 
@@ -36,7 +50,7 @@
     
     </div>
   </div>
-</header>
+</header> -->
 <!-- Header end -->
 
 
@@ -195,6 +209,6 @@
 </div>
 
 <script src="js/library.js"></script>
-
+<?php include "include/footer.php"; ?>
 </body>
 </html>

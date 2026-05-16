@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +20,14 @@
     rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/header.css">
 
 </head>
 <body class="journal-page">
+    
     <div class="journal-main">
-    <header class="header">
+        <?php include "include/header.php"; ?>
+    <!-- <header class="header">
   <div class="container">
     <a href="index.html" class="logo">Madar<span>.</span></a>
     <nav class="nav">
@@ -31,7 +46,7 @@
         </div>
     </div>
   </div>
-</header>
+</header> -->
 
 <div class="journal-wrapper" style="margin-top: 120px;"> <div class="container-fluid text-center mb-5">
         <h1 class="journal-title">Journal</h1>
@@ -230,5 +245,7 @@ document.getElementById("Quotes").innerText = quotes[randomIndex];
     </script>
 
     <script src="js/journal.js"></script>
+
+    <?php include "include/footer.php"; ?>
 </body>
 </html>

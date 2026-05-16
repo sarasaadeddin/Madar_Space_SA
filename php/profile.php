@@ -32,6 +32,35 @@ $habitData = mysqli_fetch_assoc($habitQuery);
 $totalCompletedHabits =
 $habitData['total'];
 
+//for task 
+
+$completedTasksQuery = mysqli_query($conn,
+   "SELECT COUNT(*) as total
+    FROM todo
+    WHERE user_id='$user_id'
+    AND completed=1"
+);
+
+   $completedTasksData = mysqli_fetch_assoc($completedTasksQuery);
+
+   $totalCompletedTasks = $completedTasksData['total'];
+
+
+
+   $totalTasksQuery = mysqli_query($conn,
+   "SELECT COUNT(*) as total
+   FROM todo
+   WHERE user_id='$user_id'"
+   );
+
+$totalTasksData = mysqli_fetch_assoc($totalTasksQuery);
+
+$totalTasks = $totalTasksData['total'];
+
+
+
+
+
 $weekData = [];
 
 for($i = 6; $i >= 0; $i--){
@@ -226,45 +255,63 @@ $categoryPercentages[]=$percentage;
     <div class="stats-grid">
 
       <div class="stat-card">
-
+        <i class="fa-regular fa-circle-check" style="color:#88986d; margin-right:8px;margin-left:10px; margin-top:30px ;font-size:3rem ;"></i>
         <h3>
           Completed Habits
         </h3>
-
+    
         <p>
           <?php echo $totalCompletedHabits; ?>
         </p>
+
+          <span class="habit">
+           From All Habits
+        </span>
+         <!-- <i class="fa-regular fa-circle-check" style="color:#88986d; margin-right:8px;margin-left:10px ;font-size:3rem;"></i> -->
       </div>
       <div class="stat-card">
-
+        <i class="fa-solid fa-book" style="color:#88986d; margin-right:8px;margin-left:10px; margin-top: 30px ; font-size:3rem ;"></i>
         <h3>
-          Current Streak
+          Number of books
         </h3>
 
         <p>
-          7 Days
+          16
         </p>
+
+         <span class="library">
+           From Library
+        </span>
 
       </div>
 
-      <div class="stat-card">
+     <div class="stat-card">
+      <!-- <div class="d-icon" style="color:#88986d;">
+        <img src="img/journal.png" style="color:#88986d; margin-right:8px;margin-left:10px; margin-top: 30px ; font-size:3rem ;"> -->
+        <i class="fa-solid fa-book-open" style="color:#88986d; margin-right:8px;margin-left:10px; margin-top: 30px ; font-size:2.8rem ;"></i>
+      
+       <h3>
+        Journal Entries
+       </h3>
+       <p id="journalEntries">
+         0
+       </p>
+       <div id="journalTags" class="journal-tags-stats"></div>
+     </div>
 
-        <h3>
-          Journal Entries
-        </h3>
-        <p>
-          0
-        </p>
-      </div>
       <div class="stat-card">
-
+        <i class="fa-solid fa-list-check" style="color:#88986d; margin-right:8px;margin-left:10px; margin-top: 30px ; font-size:2.8rem ;"></i>
         <h3>
           Tasks Completed
         </h3>
 
         <p>
-          0
+          <?php echo $totalCompletedTasks; ?>
         </p>
+
+        <span class="tasks-total">
+           Out of <?php echo $totalTasks; ?> Tasks
+        </span>
 
       </div>
     </div>
@@ -475,6 +522,37 @@ passwordModal.style.display="none";
 
 });
 
+//journal statistics
+fetch('/Madar_Space_SA/php/jouranl_stat.php')
+    .then(response => response.json())
+    .then(data => {
+        // Update total entries
+        document.getElementById('journalEntries').textContent = data.totalEntries;
+        
+        
+        const tagContainer = document.getElementById('journalTags');
+        const tagNames = {
+            'ideas': '<i class="fas fa-lightbulb"></i> Ideas',
+            'work': '<i class="fas fa-briefcase"></i> Work',
+            'personal': '<i class="fas fa-user"></i> Personal',
+            'reminders': '<i class="fas fa-bell"></i> Reminder'
+        };
+        
+        let tagsHTML = '<div class="journal-tags-breakdown">';
+        for (let tag in data.tagStats) {
+            const stat = data.tagStats[tag];
+            tagsHTML += `
+                <div class="tag-stat">
+                    <span class="tag-name">${tagNames[tag]}</span>
+                    <span class="tag-percentage">${stat.percentage}%</span>
+                </div>
+            `;
+        }
+        tagsHTML += '</div>';
+        
+        tagContainer.innerHTML = tagsHTML;
+    })
+    .catch(error => console.error('Error loading journal stats:', error));
 
 
 

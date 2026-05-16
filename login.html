@@ -18,6 +18,7 @@
             <form action="php/login.php" method="POST">
                 <input type="email" name="email" placeholder="email" required />
                 <input type="password" name="password" placeholder="password"required />
+                <p id="error-message" class="error-message"></p>
                 
                 
                 <span class="clearfix"></span>
@@ -75,7 +76,29 @@
 </div>
 
 <script src="js/login.js"></script>
+<script>
 
+const params = new URLSearchParams(window.location.search);
+
+const error = params.get("error");
+
+const errorMessage = document.getElementById("error-message");
+
+if(error === "wrongpassword"){
+
+    errorMessage.textContent =
+    "Incorrect password.";
+
+}
+
+if(error === "nouser"){
+
+    errorMessage.textContent =
+    "No account found with this email.";
+
+}
+
+</script>
 
 </body>
 </html>

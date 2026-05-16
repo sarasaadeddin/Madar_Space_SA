@@ -25,13 +25,16 @@ if ($result->num_rows > 0) {
 
     } else {
 
-        echo "Wrong password";
+        // echo "Wrong password";
+         header("Location: ../login.html?error=wrongpassword");
+        exit();
 
     }
 
 } else {
 
-    echo "User not found";
+     header("Location: ../login.html?error=nouser");
+    exit();
 
 }
 

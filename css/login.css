@@ -400,3 +400,11 @@ button:focus{
 .bracketIcon{
     font-size: 25px;
 }
+
+
+.error-message{
+    color: #d9534f;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: center;
+}

@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit();
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,12 +20,13 @@
         <title>Madar Space | To-Do List</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/header.css">
     </head>
 
     <body class="tasks-page">
-
+     <?php include "include/header.php"; ?>
       <!-- Header Start -->
-<header class="header">
+<!-- <header class="header">
   <div class="container">
     
     <a href="index.html" class="logo">Madar<span>.</span></a>
@@ -35,7 +50,7 @@
     </div>
 
   </div>
-</header>
+</header> -->
 <!-- Header End -->
  
       <div class="tasks-container">
@@ -78,5 +93,6 @@
       </div>
 
       <script src="js/script.js"></script>
+      <?php include "include/footer.php"; ?>
     </body>
 </html>

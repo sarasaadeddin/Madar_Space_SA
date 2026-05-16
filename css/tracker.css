@@ -29,7 +29,7 @@ body {
 }
 
 
-.header {
+.tracker-header {
   max-width: 900px;
   margin: 0 auto 32px;
   text-align: center;
@@ -38,21 +38,21 @@ body {
   gap: 14px;
 }
 
-.header h1 {
+.tracker-header h1 {
   font-size: 2rem;
   color: #88986d;
 }
 
 
 
-.date-nav {
+.tracker-header .date-nav {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
 }
 
-.nav-btn {
+.tracker-header .nav-btn {
   background: var(--card-bg);
   border: none;
   border-radius: 50%;
@@ -68,17 +68,17 @@ body {
   justify-content: center;
 }
 
-.nav-btn:hover {
+.tracker-header .nav-btn:hover {
   background: var(--primary-light);
 }
 
 
-.nav-btn:disabled {
+.tracker-header .nav-btn:disabled {
   opacity: 0.3;
   cursor: default;
 }
 
-.current-date {
+.tracker-header .current-date {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
@@ -87,7 +87,7 @@ body {
 
 
 
-.progress-card {
+.tracker-header .progress-card {
   background: #EDEBE8;
   border-radius: 20px;
   padding: 15px;
@@ -97,17 +97,17 @@ body {
   gap: 20px;
 }
 
-.progress-info {
+.tracker-header .progress-info {
   flex: 1;
 }
 
-#progress-count {
+.tracker-header #progress-count {
   font-size: 1rem;
   font-weight: 600;
   color: #555;
 }
 
-.progress-bar {
+.tracker-header .progress-bar {
   height: 10px;
   background: #D6D3D1;
   border-radius: 10px;
@@ -115,7 +115,7 @@ body {
   overflow: hidden;
 }
 
-.progress-fill {
+.tracker-header .progress-fill {
   height: 100%;
   width: 0%;
   background: #88986d;
@@ -123,7 +123,7 @@ body {
   transition: 0.4s;
 }
 
-.progress-circle {
+.tracker-header .progress-circle {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -343,80 +343,6 @@ body {
 }
 
 /* ================= NAVBAR ================= */
-
-.navbar{
-  position: fixed;
-     width:100% ;
-    top:0; left:0;right:0;
-    background: var(--bg);
-   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-    border-bottom: 1.5px solid #e8e5df;
-}
-
-.navbar .nav-container{
-  max-width: var(--max-width);
-  margin: auto;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* logo */
-.navbar .logo{
-  font-size: 28px ; 
-    font-family:'PlayFair Display' , serif ;
-    font-weight: bolder ;
-    /* color : #a3b18a;  */ 
-    color : #88986d ;
-    /* margin-left : 100px; */
-    text-decoration: none ;
-
-}
-
-.navbar .logo span{
-  color: #4d473f;
-}
-
-/* links */
-.navbar .nav-links{
- list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-.navbar .nav-links a{
- text-decoration: none;
-  color: var(--text);
-  font-weight: 700;
-  transition: 0.3s ease;
-}
-
-.navbar .nav-links a:hover{
-   color: var(--accent);
-}
-
-/* icons */
-.navbar .nav-icons{
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.navbar .nav-icons i{
-  font-size: 20px;
-  color: #2E2E2E;
-  cursor: pointer;
-}
-
-/* mobile */
-.navbar .menu-toggle{
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
 
 
 
